@@ -50,7 +50,28 @@ def place_was_visited(request):
 @login_required
 def place_details(request, place_pk):
     place = get_object_or_404(Place, pk=place_pk)
-    return render(request, 'travel_wishlist/place_detail.html', {'place': place} )
+    
+    if request.method == 'POST':
+        # Instance updates form data
+        form = TripReviewForm(request.POST, request.FILES, instance=place)
+
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Trip information updated!')
+        else:
+            messages.error(request, form.errors)
+        
+        return redirect('place_details', place_pk=place_pk)
+    
+    else: #Get the place details
+        if place.visited:
+            # Prepopulates data
+            review_form = TripReviewForm(instance=place)
+            return render(request, 'travel_wishlist/place_detail.html', {'place': place, 'review_form': review_form} )
+
+
+        else:
+            return render(request, 'travel_wishlist/place_detail.html', {'place': place} )
 
 
 @login_required

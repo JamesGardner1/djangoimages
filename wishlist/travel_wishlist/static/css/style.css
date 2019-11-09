@@ -1,26 +1,66 @@
-span.place-name {
-    display: inline-block;
-    width: 70%;
-}
+/* Base styles */
 
-form.visited-form {
-    display: inline;
-}
-
-div.wishlist-place {
-    margin: 20px;
-}
-
-label {
+#site-header {
+    background: url('../img/jtree.jpg') 0 0 repeat-x;
+    color: white;
+    padding: 40px 0 40px 0px;
+    text-align: center;
+  }
+  
+  .nav-link {
+    margin-right: 10px;
+  }
+  
+  /* General form styles  */
+  
+  label {
     display: inline-block;
     padding-right: 8px;
-}
-
-a.nav-link {
-    padding-right: 10px;
-}
-
-#add-new-place {
-    background-color: lime;
-    border: navy;
-}
+  }
+  
+  button {
+    margin: 5px 0px 5px 0;
+  }
+  
+  /* Wishlist places list */
+  
+  div.wishlist-place {
+    margin: 20px;
+  }
+  
+  .wishlist-place .place-name {
+    width: 85%;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+  
+  form.visited-form {
+    display: inline-block;
+    width: 10%;
+  }
+  
+  #add-new-place {
+    background-color: green;
+    border: darkgreen;
+  }
+  
+  /* Visited places list */
+  
+  span.visited-text {
+    display: inline-block;
+    width: 70%;
+  }
+  
+  span.visited-list-place-name {
+    word-wrap:break-word;
+  }
+  
+  /* place details */
+  
+  .delete {
+    background-color: crimson;
+    border-color: darkred;
+  }
+  
+  
+  
